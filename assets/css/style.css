@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'StarWarsFont';
+    src: url('fonts/starjedi-webfont.woff2') format('woff2'),
+         url('fonts/starjedi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    background-image: url("http://getwallpapers.com/wallpaper/full/f/4/1/92702.jpg");
+}
+
+h1 {
+   font-family: StarWarsFont; 
+   font-size: 74px;
+   margin: 0px;
+   color: #fce854;
+   text-align: center;
+}
+
+.game {
+    width: 700px;
+    height: 700px;
+    border: solid #fce854;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-left: auto;
+    text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+    color: white;
+    font-family: 'Antic', sans-serif;
+}
+
+h3, h4, h5, h6 {
+    align: center;
+}
