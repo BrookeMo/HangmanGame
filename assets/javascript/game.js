@@ -63,7 +63,8 @@ function gamePlay (){
                 guessesRemaining--;
                 document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
             }
-            // if (guessesRemaining = 0) {
+            if (guessesRemaining === 0) {
+                document.querySelector("#image").src = '../HangmanGame/assets/images/gameover.png';
                 // insert the gameover.png in the img div
                 // run the resetGame function again
             // if the word is completed,
@@ -72,6 +73,7 @@ function gamePlay (){
                     // if all word have been solved,
                         // run the you-win.png in the img div
                         // run the reset Game function
+            };
             };
         //once the remainingGuesses = 0, GAME OVER
 };
