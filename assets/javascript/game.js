@@ -49,8 +49,10 @@ function gamePlay (){
             if (newWord.indexOf(userGuess) > -1) {
                 // change the _ to the key
                 console.log(newWord.indexOf(userGuess));
-                // underscoredWord = underscoredWord.replace("_", userGuess);
-                // console.log(underscoredWord);
+                var index = newWord.indexOf(userGuess);
+                console.log(underscoredWord);
+                underscoredWord[index] = userGuess;
+
                 
                 underscoredWord = underscoreArray.join(" ");
                 document.querySelector("#currentWord").innerHTML = underscoredWord;
@@ -61,8 +63,17 @@ function gamePlay (){
                 guessesRemaining--;
                 document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
             }
+            if (guessesRemaining = 0) {
+                // insert the gameover.png in the img div
+                // run the resetGame function again
+            }
+            // if the word is completed,
+                // run the coinciding image in the img div
+                // run the resetGame function
+                    // if all word have been solved,
+                        // run the you-win.png in the img div
+                        // ren the reset Game function
             };
-
         //once the remainingGuesses = 0, GAME OVER
         //once to word is completed, display picture and song
 };
