@@ -1,17 +1,17 @@
-// =====================================================================
+// =============================================================================================
 // Global Variables
-// =====================================================================
+// =============================================================================================
 
 // Word Options
 var words = [
-    "QUIGONJINN",
-    "HANSOLO",
-    "KYLOREN",
-    "POEDAMERON",
-    "DARTHVADER",
-    "JARJARBINKS",
-    "LUKESKYWALKER",
-    "PRINCESSLEIA"
+    "quigonjinn",
+    "hansolo",
+    "kyloren",
+    "poedameron",
+    "darthvader",
+    "jarjarbinks",
+    "lukeskywalker",
+    "princessleia"
 ];
 // the word currently being guessed
 var gameWord = "";
@@ -29,9 +29,9 @@ var winCount = 0;
 var lossCount = 0;
 var guessesRemaining = 10;
 
-// ====================================================================
+// =============================================================================================
 // Functions
-// ====================================================================
+// =============================================================================================
 
 // =============================================
 // Function to begin a round
@@ -43,9 +43,9 @@ function resetGame() {
     // Select a random word
     gameWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
         // console the solution
-        console.log(newWord);
+        console.log(gameWord);
     // split the word into an array of letters
-    gameWordLetters = newWord.split("");
+    gameWordLetters = gameWord.split("");
         // console the array
         console.log(gameWordLetters);
     // make the array blank spaces for the user
@@ -142,9 +142,9 @@ function updateGame() {
     }
 };
 
-// ====================================================================
+// =============================================================================================
 // Running the Functions | Main Process
-// ====================================================================
+// =============================================================================================
 
 // start the game
 resetGame();
@@ -152,7 +152,7 @@ resetGame();
 // when the player types a letter, it
 document.onkeyup = function(event) {
     //converts all key clicks to uppercase letters (to match the words array)
-    var letterGuessed = String.fromCharCode(event.which).toUpperCase();
+    var letterGuessed = String.fromCharCode(event.which).toLowerCase();
     // runs the checkGuess function
     checkGuess(letterGuessed);
     // runs the updateGame function
