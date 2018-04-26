@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'StarWarsFont';
-    src: url('fonts/starjedi-webfont.woff2') format('woff2'),
-         url('fonts/starjedi-webfont.woff') format('woff');
+    src: url('Fonts/starjedi-webfont.woff2') format('woff2'),
+         url('Fonts/starjedi-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-   font-family: StarWarsFont; 
+   font-family: 'StarWarsFont'; 
    font-size: 74px;
    margin: 0px;
    color: #fce854;

@@ -1,4 +1,7 @@
-// My array of words
+// Global Variables
+// ===============================
+
+// Word Options
 var words = [
     "QuiGonJinn",
     "HanSolo",
@@ -9,12 +12,23 @@ var words = [
     "LukeSkywalker",
     "PrincessLeia"
 ];
-var winCount = 0;  
-var lettersGuessed = [];                   
+// the word currently being guessed
+var gameWord = "";
+// array of letters in gameWord
+var gameWordLetters = [];
+// the number of blank spaces
+var Blanks = 0;
+// array of both blanks and guessed letters
+var BlanksAndGuessed = [];
+
+// Score Counters
+var winCount = 0;
+var lossCount = 0;
 var guessesRemaining = 10;
-var newWord = "";
-var underscoredWord = "";
-var underscoreArray = [];
+
+// =================================
+
+
 
 
 function resetGame() {
