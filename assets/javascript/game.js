@@ -68,13 +68,13 @@ function resetGame() {
     // Display the amount of guesses the player starts with
     document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
     // Clear any incorrect guesses from previous rounds
-    document.querySelector("#guessedLetters").innerHTML = wrongGuesses;
+    document.querySelector("#guessedLetters").innerHTML = wrongGuesses.join(" ");
 };
 
 // =============================================
 // Function to check guesses
 // =============================================
-function gamePlay(letter){
+function checkGuess(letter){
     // variable that changes depending on whether the guess was correct or not
     var letterInWord = false;
 
@@ -108,45 +108,37 @@ function gamePlay(letter){
 };
 
 // =============================================
-// Function to check guesses
+// Function to run after the letter is checked
 // =============================================
+function updateGame() {
 
-    //when user presses a key
-        document.onkeyup = function (event) {
-            userGuess = event.key;
-            //that key is placed into the lettersGuessed Array
-            lettersGuessed.push(userGuess);
-            document.querySelector("#guessedLetters").innerHTML = lettersGuessed;
-            // if the key has alredy been pressed,
-                // do nothing
-            // if the key has not already been pressed, and 
-            // if the key is in the word,
-            if (newWord.indexOf(userGuess) > -1) {
-                // change the _ to the key
-                var index = newWord.indexOf(userGuess);
-                underscoredWord[index] = userGuess;
-                
-                underscoredWord = underscoreArray.join(" ");
-                document.querySelector("#currentWord").innerHTML = underscoredWord;
-            }
-            // if the key is not in the word,
-            else {
-                // minus one from the guesses remaining
-                guessesRemaining--;
-                document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
-            }
-            if (guessesRemaining === 0) {
-                document.querySelector("#image").src = '../HangmanGame/assets/images/gameover.png';
-                // insert the gameover.png in the img div
-                // run the resetGame function again
-            // if the word is completed,
-                // run the coinciding image in the img div
-                // run the resetGame function
-                    // if all word have been solved,
-                        // run the you-win.png in the img div
-                        // run the reset Game function
-            };
-            };
-        //once the remainingGuesses = 0, GAME OVER
-};
-gamePlay ();
+    // update the html
+    document.querySelector("#currentWord").innerHTML = blanksAndGuessed.join(" ");
+    document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
+    document.querySelector("#guessedLetters").innerHTML = wrongGuesses.join(" ");
+
+    // if the word is complete
+    if (gameWordLetters.toString() === blanksAndGuessed.toString()) {
+        // add to the win count
+        winCount++;
+        // add the you win picture in the html
+        // PUT CODE HERE
+        // update the win count in the html
+        document.querySelector("#totalWins").innerHTML = winCount;
+        // and start a new round
+        resetGame();
+    }
+
+    // if the player runs out of guesses
+    else if (guessesRemaining === 0) {
+        // add to the loss count
+        lossCount++;
+        // add the you lost picture in the html
+        // PUT CODE HERE
+        // update the loss count in the html
+        document.querySelector("#totalLosses").innerHTML = lossCount;
+        // and start a new round
+        resetGame();
+    }
+}
+
