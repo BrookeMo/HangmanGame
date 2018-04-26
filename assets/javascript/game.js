@@ -17,9 +17,11 @@ var gameWord = "";
 // array of letters in gameWord
 var gameWordLetters = [];
 // the number of blank spaces
-var Blanks = 0;
+var blanks = 0;
 // array of both blanks and guessed letters
-var BlanksAndGuessed = [];
+var blanksAndGuessed = [];
+// array of wrong guesses
+var wrongGuesses = [];
 
 // Score Counters
 var winCount = 0;
@@ -27,16 +29,32 @@ var lossCount = 0;
 var guessesRemaining = 10;
 
 // =================================
+// Functions
+// =================================
 
-
-
-
+// A function to begin a round
 function resetGame() {
+    // resets to give the player 10 guesses
+    guessesRemaining = 10;
+
     // Select a random word
-    newWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
-    console.log(newWord);
-    newWord = newWord.split("");
-    console.log(newWord);
+    gameWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
+        // console the solution
+        console.log(newWord);
+    // split the word into an array of letters
+    gameWordLetters = newWord.split("");
+        // console the array
+        console.log(gameWordLetters);
+    // make the array blank spaces for the user
+    blanks = gameWordLetters.length;
+        // console the number of blanks
+        console.log(blanks);
+
+    // clear any previous guesses from other rounds
+    blanksAndGuessed = [];
+    wrongGuesses = [];
+
+
     // Change the letters into underscores
 		for (var i = 0 ; i < newWord.length; i++) {
 			underscoreArray.push("_");
