@@ -1,5 +1,6 @@
+// =====================================================================
 // Global Variables
-// ===============================
+// =====================================================================
 
 // Word Options
 var words = [
@@ -28,12 +29,13 @@ var winCount = 0;
 var lossCount = 0;
 var guessesRemaining = 10;
 
-// =================================
+// ====================================================================
 // Functions
-// =================================
+// ====================================================================
 
-// ======
+// =============================================
 // Function to begin a round
+// =============================================
 function resetGame() {
     // resets to give the player 10 guesses
     guessesRemaining = 10;
@@ -68,10 +70,47 @@ function resetGame() {
     // Clear any incorrect guesses from previous rounds
     document.querySelector("#guessedLetters").innerHTML = wrongGuesses;
 };
-// run the function
-resetGame ();
 
-function gamePlay (){
+// =============================================
+// Function to check guesses
+// =============================================
+function gamePlay(letter){
+    // variable that changes depending on whether the guess was correct or not
+    var letterInWord = false;
+
+    //checking if the letter is in the solution
+    for (var i = 0; i < blanks; i++) {
+        if (gameWord[i] === letter) {
+            // make the variable change to true
+            letterInWord = true;
+        }
+    }
+
+    // if the guess was correct,
+    if (letterInWord) {
+        // find where the letter belongs in the word
+        for (var j = 0; j < blanks; j++) {
+            if (gameWord[j] === letter) {
+                // and change the _ to the letter
+                blanksAndGuessed[j] = letter;
+                    // console the new array for testing
+                    console.log(blanksAndGuessed);
+            }
+        }
+    }
+    //if the guess was incorrect,
+    else {
+        // we add the letter to the the wrongGuesses array
+        wrongGuesses.push(letter);
+        // and take away a turn
+        guessesRemaining--;
+    }
+};
+
+// =============================================
+// Function to check guesses
+// =============================================
+
     //when user presses a key
         document.onkeyup = function (event) {
             userGuess = event.key;
