@@ -32,7 +32,8 @@ var guessesRemaining = 10;
 // Functions
 // =================================
 
-// A function to begin a round
+// ======
+// Function to begin a round
 function resetGame() {
     // resets to give the player 10 guesses
     guessesRemaining = 10;
@@ -53,21 +54,21 @@ function resetGame() {
     // clear any previous guesses from other rounds
     blanksAndGuessed = [];
     wrongGuesses = [];
+    // fill the correct word array with blanks
+    for (var i = 0; i < blanks; i++) {
+        blanksAndGuessed.push("_");
+    }
+        // console the new array
+        console.log(blanksAndGuessed);
 
-
-    // Change the letters into underscores
-		for (var i = 0 ; i < newWord.length; i++) {
-			underscoreArray.push("_");
-        }
-    // Change the array into a string
-        underscoredWord = underscoreArray.join(" ");
-    // Display the unsolved word
-    document.querySelector("#currentWord").innerHTML = underscoredWord;
-    // put guesses remaining = 10;
-    document.querySelector("#remainingGuesses").innerHTML = 10;
-    // make letters guessed a blank array;
-    document.querySelector("#guessedLetters").innerHTML = lettersGuessed;
+    // Display the unsolved word, with spaces between each letter
+    document.querySelector("#currentWord").innerHTML = blanksAndGuessed.join(" ");
+    // Display the amount of guesses the player starts with
+    document.querySelector("#remainingGuesses").innerHTML = guessesRemaining;
+    // Clear any incorrect guesses from previous rounds
+    document.querySelector("#guessedLetters").innerHTML = wrongGuesses;
 };
+// run the function
 resetGame ();
 
 function gamePlay (){
