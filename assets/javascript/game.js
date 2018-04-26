@@ -122,7 +122,7 @@ function updateGame() {
         // add to the win count
         winCount++;
         // add the you win picture in the html
-        // PUT CODE HERE
+        document.querySelector("#image").src="./assets/images/you-win.png";
         // update the win count in the html
         document.querySelector("#totalWins").innerHTML = winCount;
         // and start a new round
@@ -134,7 +134,7 @@ function updateGame() {
         // add to the loss count
         lossCount++;
         // add the you lost picture in the html
-        // PUT CODE HERE
+        document.querySelector("#image").src="./assets/images/gameover.png";
         // update the loss count in the html
         document.querySelector("#totalLosses").innerHTML = lossCount;
         // and start a new round
