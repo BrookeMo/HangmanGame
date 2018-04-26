@@ -4,14 +4,14 @@
 
 // Word Options
 var words = [
-    "QuiGonJinn",
-    "HanSolo",
-    "KyloRen",
-    "PoeDameron",
-    "DarthVader",
-    "JarJarBinks",
-    "LukeSkywalker",
-    "PrincessLeia"
+    "QUIGONJINN",
+    "HANSOLO",
+    "KYLOREN",
+    "POEDAMERON",
+    "DARTHVADER",
+    "JARJARBINKS",
+    "LUKESKYWALKER",
+    "PRINCESSLEIA"
 ];
 // the word currently being guessed
 var gameWord = "";
@@ -140,5 +140,22 @@ function updateGame() {
         // and start a new round
         resetGame();
     }
+};
+
+// ====================================================================
+// Running the Functions | Main Process
+// ====================================================================
+
+// start the game
+resetGame();
+
+// when the player types a letter, it
+document.onkeyup = function(event) {
+    //converts all key clicks to uppercase letters (to match the words array)
+    var letterGuessed = String.fromCharCode(event.which).toUpperCase();
+    // runs the checkGuess function
+    checkGuess(letterGuessed);
+    // runs the updateGame function
+    updateGame();
 }
 
